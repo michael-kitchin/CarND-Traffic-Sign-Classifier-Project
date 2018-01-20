@@ -163,7 +163,6 @@ label-13.png  label-1.png   label-25.png  label-33.png  label-5.png
 label-17.png  label-22.png  label-2.png   label-35.png  label-7.png
 $
 ```
-
 New images:
 
 ![Image #1](input_data/real_signs/label-17.png)
@@ -196,9 +195,9 @@ Accuracy (Real) = 0.900
          
 _The top five softmax probabilities of the predictions on the captured images are outputted. The submission discusses how certain or uncertain the model is of its predictions._
 
-the top five softmax preditiction probabilities were evaluated, printed, and plotted on logarithmic scales for verification. 
+The top five softmax preditiction probabilities were evaluated, printed, and plotted on logarithmic scales for reference and verification. 
 
-In general, the devloped model was drastically more certain of its best choice than nearest alternatives, with 1st-to-2nd choice multiples routinely greater than 10^2^.
+In general, the devloped model was drastically more certain of its best choice than nearest alternatives, with 1st-to-2nd choice multiples routinely greater than 10e2.
 
 ![Softmax Plot Example #1](./media/softmax-plot-example-1.png)
 ![Softmax Plot Example #2](./media/softmax-plot-example-2.png)
