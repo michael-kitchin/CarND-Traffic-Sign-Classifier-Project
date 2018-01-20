@@ -156,7 +156,7 @@ _The submission includes five new German Traffic signs found on the web, and the
 
 Ten new images of signs were captured via screenshot from Google Street View, taken from in/around Düsseldorf and Hamburg. No consideration was made for sign type vs training set sign type (label) distribution, plotted above.
 
-In general, these images appeared clearer (superior color fidelity, brightness, and/or contrast) and/or acquired from less-oblique angles than those in the provided training/validation/test sets. These qualities were anticipated to work against the model's trained characteristics, despite being more usable for human decision-making. 
+In general, these images appeared clearer (superior color fidelity, brightness, and/or contrast) and/or acquired from less-oblique angles than those in the provided training set. These qualities were anticipated to work against the model's trained characteristics, despite being more usable for human decision-making. 
 
 Image labels were identified via provided `signnames.csv` file and incorporated into the filenames, as shown:
 ```
