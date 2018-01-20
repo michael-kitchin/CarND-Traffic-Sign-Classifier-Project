@@ -140,7 +140,7 @@ Accuracy = 0.975 / Config = [0.0, 0.10000000000000001, 0.0012999999999999999, 22
 Accuracy = 0.970 / Config = [0.0, 0.10000000000000001, 0.0012999999999999999, 8, 0.5, 128, True, True, 24, 64]
 ```
 
-Test accuracy was routinely greater than 0.54.
+Test accuracy was routinely greater than 0.95.
 ```
 Accuracy (Test) = 0.950673000641
 ```
@@ -187,7 +187,7 @@ This was due to use of `matplotlib` instead of `cv2` for image loading, due (in 
 
 See [Issue Report](https://github.com/udacity/sdc-issue-reports/issues/768) for additional information.
 
-Once resolved, performance on new images was routinely greated than 0.90.
+Once resolved, performance on new images was routinely greater than 0.90.
 ```
 Accuracy (Real) = 0.900
 ```
