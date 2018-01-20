@@ -193,7 +193,7 @@ Once resolved, performance on new images was routinely greater than 0.90.
 Accuracy (Real) = 0.900
 ```
 
-This reduction in accuracy vs validation/test images suggests a overfitting and/or counter-productive bias in training/validation/test sets.    
+This reduction in accuracy vs validation/test images suggests overfitting and/or counter-productive bias in training/validation/test sets.    
 
 #### 4.3 Model Certainty - Softmax Probabilities
          
