@@ -163,6 +163,19 @@ label-13.png  label-1.png   label-25.png  label-33.png  label-5.png
 label-17.png  label-22.png  label-2.png   label-35.png  label-7.png
 $
 ```
+
+New images:
+
+![Image #1](input_data/real_signs/label-17.png)
+![Image #2](input_data/real_signs/label-7.png)
+![Image #3](input_data/real_signs/label-13.png)
+![Image #4](input_data/real_signs/label-35.png)
+![Image #5](input_data/real_signs/label-1.png)
+![Image #6](input_data/real_signs/label-5.png)
+![Image #7](input_data/real_signs/label-2.png)
+![Image #8](input_data/real_signs/label-22.png)
+![Image #9](input_data/real_signs/label-33.png)
+![Image #10](input_data/real_signs/label-25.png)
     
 #### 4.2 Performance on New Images
        
@@ -187,9 +200,18 @@ the top five softmax preditiction probabilities were evaluated, printed, and plo
 
 In general, the devloped model was drastically more certain of its best choice than nearest alternatives, with 1st-to-2nd choice multiples routinely greater than 10^2^.
 
+![Softmax Plot Example #1](./media/softmax-plot-example-1.png)
+![Softmax Plot Example #2](./media/softmax-plot-example-2.png)
+
 See [report.html](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifier-Project/blob/master/report.html) for more detailed results.
 
 ---
 ### Visualizing Working State
 
 Activation layer working state was also printed and plotted for verification and reference using the supplied `outputFeatureMap` function.
+
+This proved usable for only one of the activation layers, however (the first).
+
+![Working State Example #1](./media/working-state-example-1.png)
+
+See [report.html](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifier-Project/blob/master/report.html) for more detailed results.
