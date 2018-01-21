@@ -194,7 +194,7 @@ Summary:
 | `curr_conv1_depth` | 9th | Convolution layer #1 depth | 24
 | `curr_conv2_depth` | 10th | Convolution layer #2 depth | 64
 
-See [Notebook Code](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb) for hyperparameter evaluation ranges (commented-out).
+See [Traffic_Sign_Classifier.ipynb](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb) for hyperparameter evaluation ranges (commented-out).
 
 ##### 3.4.2 Test Performance 
 Test accuracy was routinely greater than 0.95.
