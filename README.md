@@ -253,7 +253,7 @@ Once resolved, performance on new images was routinely greater than 0.90.
 ```
 Accuracy (Real) = 0.900
 ```
-This reduction in accuracy vs validation (0.98)/test (0.90) images, above suggests over-fitting and/or counter-productive bias in training/validation/test sets. It's also reasonable to assume probability distribution for given signs may be correlated with training set sign type (label) distribution, plotted above.    
+This reduction in accuracy vs validation (0.98)/test (0.90) images, above suggests over-fitting and/or counter-productive bias in training/validation/test sets. It's also reasonable to assume identified label probability distribution for given images (see below) may be correlated with training set label distribution (plotted above).    
 
 #### 4.3 Model Certainty - Softmax Probabilities
          
