@@ -109,17 +109,38 @@ See [report.html](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifi
          
 _The submission provides details of the characteristics and qualities of the architecture, including the type of model used, the number of layers, and the size of each layer. Visualizations emphasizing particular qualities of the architecture are encouraged._
 
-Model construction and evaluation was madularized to enable experimentation with structural hyperparameters such as convolution layer depth. This required tracking these hyperparameters in order to instantiate models compatible with the dimensionality of best weights discovered during training.
+Model construction and evaluation was modularized to enable experimentation with structural hyperparameters such as convolution layer depth. This required tracking these hyperparameters in order to instantiate models compatible with the dimensionality of best weights discovered during training.
 
-Developing and evolving this modularity imparted valuable understanding of the TensorFlow API and graph lifecycle.     
+Developing and evolving this modularity imparted valuable understanding of the TensorFlow API and graph lifecycle.
+
+Model structure is based on a standard LeNet-5 approach, explored originally in the CarND-LeNet-Lab project.
+
+Summary:
+
+| Layer                 | Description
+| :--------------------:|----------
+| Input                 | Input: 32x32x(n1) RGB image<br/>Where (n1) = configured image depth (1 or 3)
+| Convolution #1        | Input: 32x32x(n1), 1x1 stride, valid padding;<br/>Output: 28x28x(n2)<br/>Where (n2) = configured convolution depth #1 (best: 24) 
+| Relu (Activation) #1  |
+| Pooling #1            | Input: 28x28x(n2), 2x2 kernel size/stride, valid padding; <br/>Output: 14x14x(n2)
+| Convolution #2        | Input: 14x14x(n2), 1x1 stride, valid padding; <br/>Output: 10x10x(n3)<br/>Where (n3) = configured convolution depth #2 (best: 64) 
+| Relu (Activation) #2  |  
+| Pooling #2            | Input: 10x10x(n3), 2x2 kernel size/stride, valid padding; <br/>Output: 5x5x(n3)
+| Connected #1          | Input: (5x5xn3) weights; output: 120 weights
+| Relu (Activation) #3  |  
+| Connected #2          | Input: 120 weights; <br/>Output: 84 weights
+| Relu (Activation) #4  |  
+| Connected #3          | Input: 84 weights; <br/>Output: (n4) weights<br/>Where (n4) = # of classes (default: 43)
 
 #### 3.3. Model Training
           
 _The submission describes how the model was trained by discussing what optimizer was used, batch size, number of epochs and values for hyperparameters._
 
-Training and verification steps were evaluated over multiple runs (~2000) using automatically-generated ranges of hyperparameters, both procedural (e.g., batch size, epoch count, dropout fraction, learning rate, initialization parameters) and structural (e.g., convolution layer depth). Permutations were shuffled and repeated to minimize unanticipated, cumulative effects.
+LeNet-5 was chosen as a baseline model architecture, both due to its established reputation in image classification and familiarity from earlier in this course. Model construction was encapsulated and parameterized to enable evaluation of both both procedural (e.g., batch size, epoch count, dropout fraction, learning rate, initialization parameters) and structural (e.g., convolution layer depth) hyperparameters.    
 
-The `AdamOptimizer` was selected due to its general robustness, simplicity, and attractive traits such as (apparently) built-in, interactive learning rate reduction.
+Training and verification steps were evaluated over multiple runs (~2000) using automatically-generated ranges of hyperparameters. Permutations were shuffled and repeated to minimize unanticipated, cumulative effects.
+
+`AdamOptimizer` was selected due to its general robustness, simplicity, and attractive traits such as (apparently) built-in, interactive learning rate reduction.
 
 This effort yielded valuable experience, but may have been over-emphasized due to general unfamiliarity with the domain and TensorFlow, specifically.   
       
@@ -132,14 +153,52 @@ In addition to the systematic evaluation of hyperparameters, described above the
 * Weights and configurations were stored whenever improvement on previous, best accuracy was identified, regardless of current epoch
 * Training runs were terminated whenever accuracy consistently degraded (i.e., less than observed best in a given run for (n) epochs) 
 
+##### 3.4.1 Validation Performance
 This approach routinely produced validation accuracy greater than 0.98.
+
+The best hyperparameters discovered through this process were subsequently made training algorithm defaults and are printed during execution and in rankings at conclusion:
 ```
+Total passes 3 (tries=3, permutations=1):
+Current pass # 1 of 3
+    curr_mu:  0.0
+    curr_sigma:  0.1
+    curr_rate:  0.0013
+    curr_epochs:  100
+    curr_keep:  0.5
+    curr_batch_size:  128
+    curr_grayscale:  True
+    curr_normalize:  True
+    curr_conv1_depth:  24
+    curr_conv2_depth:  64
+Stopping at epoch # 43 (degrading accuracy)!
+Accuracy (Validation) = 0.975
+
+[...]
+
 Top 3 results:
 Accuracy = 0.980 / Config = [0.0, 0.10000000000000001, 0.0012999999999999999, 67, 0.5, 128, True, True, 24, 64]
 Accuracy = 0.975 / Config = [0.0, 0.10000000000000001, 0.0012999999999999999, 22, 0.5, 128, True, True, 24, 64]
 Accuracy = 0.970 / Config = [0.0, 0.10000000000000001, 0.0012999999999999999, 8, 0.5, 128, True, True, 24, 64]
 ```
 
+Summary:
+
+| Field | Output Position | Definition | Best Value
+|-------|:---------------:|------------|:---------:
+| `curr_mu` | 1st | Mean for randomly-initialized weights | 0.0
+| `curr_sigma` | 2nd | Standard deviation for randomly-initialized weights | 0.1
+| `curr_rate` | 3rd | Initial learning rate (`AdamOptimizer` is said to decay this) | 0.0013
+| `curr_epochs` | 4th | Maximum epochs shown at start<br/>Epoch with best accuracy shown in ranking | 100 (or) Best
+| `curr_keep` | 5th | Weight retention probability during training (i.e., dropout) | 0.5
+| `curr_batch_size` | 6th | Evaluation batch size | 128
+| `curr_grayscale` | 7th | Grayscale images before evaluation? | True
+| `curr_normalize` | 8th | Normalize images before evaluation? | True
+| `curr_conv1_depth` | 9th | Convolution layer #1 depth | 24
+| `curr_conv2_depth` | 10th | Convolution layer #2 depth | 64
+
+See [Notebook Code](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb) for hyperparameter evaluation ranges (commented-out).
+
+##### 3.4.2 Test Performance 
 Test accuracy was routinely greater than 0.95.
 ```
 Accuracy (Test) = 0.950673000641
@@ -165,18 +224,20 @@ label-13.png  label-1.png   label-25.png  label-33.png  label-5.png
 label-17.png  label-22.png  label-2.png   label-35.png  label-7.png
 $
 ```
-New images:
+Summary:
 
-![Image #1](input_data/real_signs/label-17.png)
-![Image #2](input_data/real_signs/label-7.png)
-![Image #3](input_data/real_signs/label-13.png)
-![Image #4](input_data/real_signs/label-35.png)
-![Image #5](input_data/real_signs/label-1.png)
-![Image #6](input_data/real_signs/label-5.png)
-![Image #7](input_data/real_signs/label-2.png)
-![Image #8](input_data/real_signs/label-22.png)
-![Image #9](input_data/real_signs/label-33.png)
-![Image #10](input_data/real_signs/label-25.png)
+|Image|Label|Notes|
+|-----|:-----:|-----|
+|![Image #1](input_data/real_signs/label-17.png)|17|Poor brightness/contrast but w/greater saturation than examples may defeat contrast-/brightness-driven affinities.|
+|![Image #2](input_data/real_signs/label-7.png)|7|Good color/brightness/contrast; Cross-cutting glare may defeat brightness-driven affinities.|
+|![Image #3](input_data/real_signs/label-13.png)|13|Good color/brightness/contrast; Upper corner clipping may defeat edge-driven affinities.|
+|![Image #4](input_data/real_signs/label-35.png)|35|Good color/brightness/contrast; Adjoining, partly-overlapping sign above may defeat edge-driven affinities.|
+|![Image #5](input_data/real_signs/label-1.png)|1|Average color/brightness/contrast; Adjoining, partly-overlapping sign below may defeat edge-driven affinities.|
+|![Image #6](input_data/real_signs/label-5.png)|5|Degraded lines from over-saturation may defeat edge-driven affinities.|
+|![Image #7](input_data/real_signs/label-2.png)|2|Average color/brightness/contrast; Degraded lines from motion/depth-of-field blur may defeat edge-driven affinities.|
+|![Image #8](input_data/real_signs/label-22.png)|22|Good color/brightness/contrast; Lower corner clipping may defeat edge-driven affinities.|
+|![Image #9](input_data/real_signs/label-33.png)|33|Good color/brightness/contrast; Good candidate.|
+|![Image #10](input_data/real_signs/label-25.png)|25|Poor brightness/contrast; Lower corner clipping may defeat edge-driven affinities.|
     
 #### 4.2 Performance on New Images
        
@@ -193,7 +254,7 @@ Once resolved, performance on new images was routinely greater than 0.90.
 Accuracy (Real) = 0.900
 ```
 
-This reduction in accuracy vs validation/test images suggests overfitting and/or counter-productive bias in training/validation/test sets.    
+This reduction in accuracy vs validation (0.98)/test (0.90) images, above suggests over-fitting and/or counter-productive bias in training/validation/test sets.    
 
 #### 4.3 Model Certainty - Softmax Probabilities
          
