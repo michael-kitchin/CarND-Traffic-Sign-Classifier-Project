@@ -213,9 +213,9 @@ See [report.html](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifi
 
 _The submission includes five new German Traffic signs found on the web, and the images are visualized. Discussion is made as to particular qualities of the images or traffic signs in the images that are of interest, such as whether they would be difficult for the model to classify._
 
-Ten new images of signs were captured via screenshot from Google Street View, taken from in/around Düsseldorf and Hamburg.
+Ten new images of signs were captured via screenshot from Google Street View, taken from in/around Düsseldorf and Hamburg. No consideration was made for sign type vs training set sign type (label) distribution, plotted above.
 
-In general, these images appeared clearer (superior color fidelity, brightness, and/or contrast) and/or acquired from less-oblique angles than those in the provided training/validation/test sets. These qualities were anticipated to work against the model's trained characteristics, despite being more usable for human decision-making. 
+In general, these images appeared clearer (superior color fidelity, brightness, and/or contrast) and/or acquired from less-oblique angles than those in the provided training set. These qualities were anticipated to work against the model's trained characteristics, despite being more usable for human decision-making. 
 
 Image labels were identified via provided `signnames.csv` file and incorporated into the filenames, as shown:
 ```
@@ -253,8 +253,7 @@ Once resolved, performance on new images was routinely greater than 0.90.
 ```
 Accuracy (Real) = 0.900
 ```
-
-This reduction in accuracy vs validation (0.98)/test (0.90) images, above suggests over-fitting and/or counter-productive bias in training/validation/test sets.    
+This reduction in accuracy vs validation (0.98)/test (0.90) images, above suggests over-fitting and/or counter-productive bias in training/validation/test sets. It's also reasonable to assume probability distribution for given signs may be correlated with training set sign type (label) distribution, plotted above.    
 
 #### 4.3 Model Certainty - Softmax Probabilities
          
