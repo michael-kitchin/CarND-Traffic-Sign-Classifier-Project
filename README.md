@@ -120,17 +120,17 @@ Summary:
 | Layer                 | Description
 | :--------------------:|----------
 | Input                 | Input: 32x32x(n1) RGB image<br/>Where (n1) = configured image depth (1 or 3)
-| Convolution #1        | Input: 32x32x(n1), 1x1 stride, valid padding;<br/>Output: 28x28x(n2)<br/>Where (n2) = configured convolution depth #1 (best: 24) 
+| Convolution #1        | Input: 32x32x(n1), 1x1 stride, valid padding<br/>Output: 28x28x(n2)<br/>Where (n2) = configured convolution depth #1 (best: 24) 
 | Relu (Activation) #1  |
-| Pooling #1            | Input: 28x28x(n2), 2x2 kernel size/stride, valid padding; <br/>Output: 14x14x(n2)
-| Convolution #2        | Input: 14x14x(n2), 1x1 stride, valid padding; <br/>Output: 10x10x(n3)<br/>Where (n3) = configured convolution depth #2 (best: 64) 
+| Pooling #1            | Input: 28x28x(n2), 2x2 kernel size/stride, valid padding<br/>Output: 14x14x(n2)
+| Convolution #2        | Input: 14x14x(n2), 1x1 stride, valid padding<br/>Output: 10x10x(n3)<br/>Where (n3) = configured convolution depth #2 (best: 64) 
 | Relu (Activation) #2  |  
-| Pooling #2            | Input: 10x10x(n3), 2x2 kernel size/stride, valid padding; <br/>Output: 5x5x(n3)
-| Connected #1          | Input: (5x5xn3) weights; output: 120 weights
+| Pooling #2            | Input: 10x10x(n3), 2x2 kernel size/stride, valid padding<br/>Output: 5x5x(n3)
+| Connected #1          | Input: 5x5x(n3) weights; output: 120 weights
 | Relu (Activation) #3  |  
-| Connected #2          | Input: 120 weights; <br/>Output: 84 weights
+| Connected #2          | Input: 120 weights<br/>Output: 84 weights
 | Relu (Activation) #4  |  
-| Connected #3          | Input: 84 weights; <br/>Output: (n4) weights<br/>Where (n4) = # of classes (default: 43)
+| Connected #3          | Input: 84 weights<br/>Output: (n4) weights<br/>Where (n4) = # of classes (default: 43)
 
 #### 3.3. Model Training
           
