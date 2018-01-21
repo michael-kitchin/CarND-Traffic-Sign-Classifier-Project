@@ -109,11 +109,11 @@ See [report.html](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifi
          
 _The submission provides details of the characteristics and qualities of the architecture, including the type of model used, the number of layers, and the size of each layer. Visualizations emphasizing particular qualities of the architecture are encouraged._
 
+LeNet-5 was chosen as a baseline model architecture, both due to its established reputation in image classification and familiarity from earlier in this course. Model construction was encapsulated and parameterized to enable evaluation of both both procedural (e.g., batch size, epoch count, dropout fraction, learning rate, initialization parameters) and structural (e.g., convolution layer depth) hyperparameters.    
+
 Model construction and evaluation was modularized to enable experimentation with structural hyperparameters such as convolution layer depth. This required tracking these hyperparameters in order to instantiate models compatible with the dimensionality of best weights discovered during training.
 
 Developing and evolving this modularity imparted valuable understanding of the TensorFlow API and graph lifecycle.
-
-Model structure is based on a standard LeNet-5 approach, explored originally in the CarND-LeNet-Lab project.
 
 Summary:
 
@@ -135,8 +135,6 @@ Summary:
 #### 3.3. Model Training
           
 _The submission describes how the model was trained by discussing what optimizer was used, batch size, number of epochs and values for hyperparameters._
-
-LeNet-5 was chosen as a baseline model architecture, both due to its established reputation in image classification and familiarity from earlier in this course. Model construction was encapsulated and parameterized to enable evaluation of both both procedural (e.g., batch size, epoch count, dropout fraction, learning rate, initialization parameters) and structural (e.g., convolution layer depth) hyperparameters.    
 
 Training and verification steps were evaluated over multiple runs (~2000) using automatically-generated ranges of hyperparameters. Permutations were shuffled and repeated to minimize unanticipated, cumulative effects.
 
