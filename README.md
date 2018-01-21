@@ -262,7 +262,6 @@ The top five softmax preditiction probabilities were evaluated, printed, and plo
 In general, the devloped model was drastically more certain of its best choice than nearest alternatives, with 1st-to-2nd choice multiples routinely greater than 10e2.
 
 Examples:
-
 ![Softmax Plot Example #1](./media/softmax-plot-example-1.png)
 ![Softmax Plot Example #2](./media/softmax-plot-example-2.png)
 
@@ -275,6 +274,7 @@ Activation layer working state was also printed and plotted for verification and
 
 This proved usable for only one of the activation layers, however (the first).
 
+Examples:
 ![Working State Example #1](./media/working-state-example-1.png)
 
 See [report.html](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifier-Project/blob/master/report.html) for more detailed results.
