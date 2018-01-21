@@ -109,9 +109,9 @@ See [report.html](https://github.com/michael-kitchin/CarND-Traffic-Sign-Classifi
          
 _The submission provides details of the characteristics and qualities of the architecture, including the type of model used, the number of layers, and the size of each layer. Visualizations emphasizing particular qualities of the architecture are encouraged._
 
-LeNet-5 was chosen as a baseline model architecture, both due to its established reputation in image classification and familiarity from earlier in this course. Model construction was encapsulated and parameterized to enable evaluation of both both procedural (e.g., batch size, epoch count, dropout fraction, learning rate, initialization parameters) and structural (e.g., convolution layer depth) hyperparameters.    
+LeNet-5 was chosen as a baseline model architecture, both due to its established reputation in image classification and familiarity from earlier in this course. 
 
-Model construction and evaluation was modularized to enable experimentation with structural hyperparameters such as convolution layer depth. This required tracking these hyperparameters in order to instantiate models compatible with the dimensionality of best weights discovered during training.
+Model construction was encapsulated and parameterized to enable evaluation of both both procedural (e.g., batch size, epoch count, dropout fraction, learning rate, initialization parameters) and structural (e.g., convolution layer depth) hyperparameters. This required tracking these hyperparameters in order to instantiate models compatible with the dimensionality of the best weights discovered/saved during training.
 
 Developing and evolving this modularity imparted valuable understanding of the TensorFlow API and graph lifecycle.
 
