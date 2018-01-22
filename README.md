@@ -126,7 +126,7 @@ Summary:
 | Convolution #2        | Input: 14x14x(n2), 1x1 stride, valid padding<br/>Output: 10x10x(n3)<br/>Where (n3) = configured convolution depth #2 (best: 64) 
 | Relu (Activation) #2  |  
 | Pooling #2            | Input: 10x10x(n3), 2x2 kernel size/stride, valid padding<br/>Output: 5x5x(n3)
-| Connected #1          | Input: 5x5x(n3) weights; output: 120 weights
+| Connected #1          | Input: 5x5x(n3) weights<br/>Output: 120 weights
 | Relu (Activation) #3  |  
 | Connected #2          | Input: 120 weights<br/>Output: 84 weights
 | Relu (Activation) #4  |  
@@ -241,7 +241,7 @@ Summary:
        
 _The submission documents the performance of the model when tested on the captured images. The performance on the new images is compared to the accuracy results of the test set._
 
-At first, performance on new images proved very low (0.10), approximate to random results. The cause proved to be inconsistencies between the color model of images loaded from the provided pickle files vs acquired PNG files. 
+At first, performance on new images proved very low (0.10), approximate to random results. The cause proved to be inconsistencies between image color models loaded from provided training/validation/test pickle files vs acquired PNG files. 
 
 This was due to use of `matplotlib` instead of `cv2` for image loading, due (in turn) to unavailability of `cv2` on the provided AMI. Evaluation and resolution of this concern delayed project completion for at least a week. 
 
