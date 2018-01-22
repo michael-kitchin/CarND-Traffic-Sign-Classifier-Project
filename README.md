@@ -229,8 +229,8 @@ Summary:
 |![Image #1](input_data/real_signs/label-17.png)|17|Poor brightness/contrast but w/greater saturation than examples may defeat contrast-/brightness-driven affinities.|
 |![Image #2](input_data/real_signs/label-7.png)|7|Good color/brightness/contrast; Cross-cutting glare may defeat brightness-driven affinities.|
 |![Image #3](input_data/real_signs/label-13.png)|13|Good color/brightness/contrast; Upper corner clipping may defeat edge-driven affinities.|
-|![Image #4](input_data/real_signs/label-35.png)|35|Good color/brightness/contrast; Adjoining, partly-overlapping sign above may defeat edge-driven affinities.|
-|![Image #5](input_data/real_signs/label-1.png)|1|Average color/brightness/contrast; Adjoining, partly-overlapping sign below may defeat edge-driven affinities.|
+|![Image #4](input_data/real_signs/label-35.png)|35|Good color/brightness/contrast; Adjoining, partly-overlapping sign below may defeat edge-driven affinities.|
+|![Image #5](input_data/real_signs/label-1.png)|1|Average color/brightness/contrast; Adjoining, partly-overlapping sign above may defeat edge-driven affinities.|
 |![Image #6](input_data/real_signs/label-5.png)|5|Degraded lines from over-saturation may defeat edge-driven affinities.|
 |![Image #7](input_data/real_signs/label-2.png)|2|Average color/brightness/contrast; Degraded lines from motion/depth-of-field blur may defeat edge-driven affinities.|
 |![Image #8](input_data/real_signs/label-22.png)|22|Good color/brightness/contrast; Lower corner clipping may defeat edge-driven affinities.|
